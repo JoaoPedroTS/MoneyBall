@@ -23,3 +23,18 @@ void Jogador::ShowInfo(){
          << "-----------------------------"
          << endl; 
 }
+
+float Jogador::AproveitamentoPasse(){
+    return ((m_pCertos/(m_pErrados + m_pCertos))*100);
+}
+
+float Jogador::AproveitamentoDessarmes(){
+    return (m_desarmes/m_fCometidas);
+}
+
+float Jogador::ConversaoChutes(){
+    return (m_gols/m_chutes);
+}
+size_t Jogador::ParticipacaoEmGols(){
+    return (m_gols + m_assists);
+}

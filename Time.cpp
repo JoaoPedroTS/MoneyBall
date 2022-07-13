@@ -12,7 +12,15 @@ Time::Time(string nome){
 
 //Sets
 void Time::AddJogador(Jogador *jogador){
-    m_elenco.push_back(jogador);
+    for (size_t i = 0; i < m_elenco.size(); i++){
+        if (m_elenco.at(i) == jogador){
+            cout << "jogador já foi cadastrado" << endl;
+        } else {
+            m_elenco.push_back(jogador);
+            cout << "Jogador cadastrado comm sucesso !" << endl;
+        }
+        
+    }
 }
 
 //Gets
