@@ -3,7 +3,7 @@
 
 #include <iostream>
 
-#include "Time.hpp"
+#include "../Partida/Partida.hpp"
 
 using namespace std;
 
@@ -11,7 +11,7 @@ class Campeonato
 {
 protected:
     string m_nome;
-    vector<Time*> m_participantes;
+    vector <Partida*> m_partidas;
 public:
     //Construtores
     Campeonato();
@@ -21,7 +21,7 @@ public:
     ~Campeonato(){};
 
     //Sets
-    void AddTime(Time *time);
+    void AddPartida(Partida *mandante, Partida *visitante);
 
     //Gets
     string GetNome();

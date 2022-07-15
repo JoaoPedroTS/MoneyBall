@@ -1,6 +1,10 @@
-#include "Campeonato.hpp"
-#include "Goleiro.hpp"
-#include "Zagueiro.hpp"
+#include "Campeonato/Campeonato.hpp"
+#include "Time/Time.hpp"
+#include "Jogador/Goleiro/Goleiro.hpp"
+#include "Jogador/Zagueiro/Zagueiro.hpp"
+#include "Jogador/Lateral/Lateral.hpp"
+#include "Jogador/MeioCampista/MeioCampista.hpp"
+#include "Jogador/Atacante/Atacante.hpp"
 
 int main(){
 
@@ -11,10 +15,11 @@ int main(){
     while (1){
         cout << "1. Adicionar dados de um jogador" << endl;
         cout << "2. Adicionar dados referentes a um time" << endl;
-        cout << "3. Adicionar dados referentes a um campeonato" << endl;
-        cout << "4. Associar um jogador a um time" << endl;
-        cout << "5. Associar um time a um campeonato" << endl;
-        cout << "6. Consultar dados de um campeonato" << endl;
+        cout << "3. Adicionar dados referentes a uma partida" << endl;
+        cout << "4. Adicionar dados referentes a um campeonato" << endl;
+        cout << "5. Associar um jogador a um time" << endl;
+        cout << "6. Associar um time a um campeonato" << endl;
+        cout << "7. Consultar dados de um campeonato" << endl;
         cout << "0. Sair" << endl;
 
         size_t opt;
@@ -44,8 +49,32 @@ int main(){
             size_t option;
             cin >> option;
 
-            Jogador jogador(nome, numero, bday);
-            listaJogadores.push_back(jogador);
+            if(option == 1){
+                Goleiro jogador(nome, numero, bday);
+                listaJogadores.push_back(jogador);
+            }
+
+            if(option == 2){
+                Zagueiro jogador(nome, numero, bday);
+                listaJogadores.push_back(jogador);
+            }
+
+            if (option == 3){
+                Lateral jogador(nome, numero, bday);
+                listaJogadores.push_back(jogador);
+            }
+
+            if (option == 4){
+                MeioCampista jogador(nome, numero, bday);
+                listaJogadores.push_back(jogador);
+            }
+
+            if(option == 5){
+                Atacante jogador(nome, numero, bday);
+                listaJogadores.push_back(jogador);
+            }
+            
+            
         }
 
         if (opt == 2){
@@ -59,7 +88,7 @@ int main(){
             continue;
         }
 
-        if (opt == 3){
+        if (opt == 4){
            cout << "Informe o nome do campeonato" << endl;
            string nome;
            cin >> nome;
@@ -71,7 +100,7 @@ int main(){
         }
 
         //A listagem de jogadores esta exibindo ponteiros
-        if (opt == 4){
+        if (opt == 5){
             if (listaJogadores.empty()){
                 cout << "nenhum jogador cadastrado" << endl;
                 continue;
@@ -109,7 +138,7 @@ int main(){
         }
 
         //A listagem de times esta exibindo ponteiros
-        if (opt == 5){
+        if (opt == 6){
             if (listaTimes.empty()){
                 cout << "nenhum time cadastrado" << endl;
                 continue;                
@@ -136,7 +165,7 @@ int main(){
                     cin >> idCampeonato;
                     Campeonato campeonato = listaCampeonatos.at(idCampeonato-1);
 
-                    campeonato.AddTime(&time);
+                    //campeonato.AddTime(&time);
                     cout << "Times inscritos no(a) " << campeonato.GetNome() << endl;
                     campeonato.ListarIncritos();
                 }
@@ -146,7 +175,7 @@ int main(){
             continue;
         }
 
-        if (opt == 6){
+        if (opt == 7){
             continue;
         }
 

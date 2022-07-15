@@ -1,11 +1,10 @@
 #ifndef ZAGUEIRO_HPP
 #define ZAGUEIRO_HPP
 
-#include "Jogador.hpp"
+#include "../Jogador.hpp"
 
 class Zagueiro : public Jogador{
-protected:
-    
+protected:    
 public:
     Zagueiro();
     Zagueiro(string nome, size_t numero, string bday);
@@ -14,5 +13,4 @@ public:
 
     float CalcNota();
 };
-
 #endif

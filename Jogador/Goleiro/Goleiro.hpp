@@ -1,7 +1,7 @@
 #ifndef GOLEIRO_HPP
 #define GOLEIRO_HPP
 
-#include "Jogador.hpp"
+#include "../Jogador.hpp"
 
 class Goleiro : public Jogador{
 protected:
@@ -12,7 +12,7 @@ public:
     Goleiro(string nome, size_t numero, string bday);
 
     //Destrutores
-    ~Goleiro();
+    ~Goleiro(){};
 
     //Sets
     void SetDefesa(size_t defesa);

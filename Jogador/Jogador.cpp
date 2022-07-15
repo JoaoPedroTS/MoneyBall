@@ -2,9 +2,12 @@
 
 //Construtores
 Jogador::Jogador(){
-    m_nome = "";
+    m_nome, m_bDay = "";
     m_numero = 0;
-    m_bDay = "";
+    m_jogos, m_titular = 0;
+    m_pCertos, m_pErrados, m_pDecisivos = 0;
+    m_desarmes, m_fCometidas, m_fSofridas = 0;
+    m_assists, m_chutes, m_gols = 0;
 }
 
 Jogador::Jogador(string nome, size_t numero, string bday){

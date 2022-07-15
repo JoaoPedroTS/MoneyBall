@@ -4,7 +4,7 @@
 #include <iostream>
 #include <vector>
 
-#include "Jogador.hpp"
+#include "../Jogador/Jogador.hpp"
 
 using namespace std;
 
