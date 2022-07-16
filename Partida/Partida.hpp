@@ -21,5 +21,8 @@ public:
     //Sets
     void SetMandante(Time *time);
     void SetVisitante(Time *time);
+
+    //Gets
+    void ShowInfo();
 };
 #endif

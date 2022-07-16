@@ -18,3 +18,8 @@ void Partida::SetMandante(Time *time){
 void Partida::SetVisitante(Time *time){
     m_confronto.second = time;
 }
+
+//Gets
+void Partida::ShowInfo(){
+    cout << m_confronto.first << " x " << m_confronto.second << "" << m_data << " às " << m_horario <<endl;
+}

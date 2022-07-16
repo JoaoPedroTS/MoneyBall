@@ -26,3 +26,12 @@ Zagueiro::Zagueiro(string nome, size_t numero, string bday){
 float Zagueiro::CalcNota(){
     return ((Zagueiro::AproveitamentoDessarmes() * 0.4) + (Zagueiro::AproveitamentoPasse() * 0.6));
 }
+
+void Zagueiro::ShowInfo(){
+    cout << "nome do jogador: " << m_nome << endl
+         << "numero: " << m_numero << endl
+         << "data de mascimento: " << m_bDay << endl
+         << "posição: Zagueiro" << endl
+         << "-----------------------------"
+         << endl; 
+}

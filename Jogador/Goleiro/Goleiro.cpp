@@ -38,3 +38,12 @@ size_t Goleiro::GetDefesa(){
 float Goleiro::CalcNota(){
     return m_defesa;
 }
+
+void Goleiro::ShowInfo(){
+    cout << "nome do jogador: " << m_nome << endl
+         << "numero: " << m_numero << endl
+         << "data de mascimento: " << m_bDay << endl
+         << "Posição: Goleiro" << endl
+         << "-----------------------------"
+         << endl; 
+}

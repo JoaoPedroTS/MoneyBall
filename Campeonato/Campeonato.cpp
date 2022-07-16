@@ -1,4 +1,4 @@
-#include "campeonato.hpp"
+#include "Campeonato.hpp"
 
 //Construtores
 Campeonato::Campeonato(){

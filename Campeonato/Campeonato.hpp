@@ -21,7 +21,7 @@ public:
     ~Campeonato(){};
 
     //Sets
-    void AddPartida(Partida *mandante, Partida *visitante);
+    void AddPartida(Partida *partida);
 
     //Gets
     string GetNome();

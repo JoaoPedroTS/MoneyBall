@@ -24,5 +24,16 @@ MeioCampista::MeioCampista(string nome, size_t numero, string bday){
 }
 
 float MeioCampista::CalcNota(){
-    return ((MeioCampista::AproveitamentoPasse() *0.1) + (MeioCampista::ParticipacaoEmGols()*0.2) + (m_pDecisivos*0.3));
+    return ((MeioCampista::AproveitamentoPasse() *0.1)
+            +(MeioCampista::ParticipacaoEmGols()*0.2)
+            +(m_pDecisivos*0.3));
+}
+
+void MeioCampista::ShowInfo(){
+    cout << "nome do jogador: " << m_nome << endl
+         << "numero: " << m_numero << endl
+         << "data de mascimento: " << m_bDay << endl
+         << "Posição: Meio Campista" << endl
+         << "-----------------------------"
+         << endl; 
 }

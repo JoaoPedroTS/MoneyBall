@@ -12,5 +12,6 @@ public:
     ~Zagueiro(){};
 
     float CalcNota();
+    void ShowInfo();
 };
 #endif

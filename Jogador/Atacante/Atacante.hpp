@@ -15,5 +15,6 @@ public:
 
     //Gets
     float CalcNota();
+    void ShowInfo();
 };
 #endif

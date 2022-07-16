@@ -28,3 +28,12 @@ float Lateral::CalcNota(){
             +(Lateral::AproveitamentoPasse()*0.5)
             +(Lateral::ParticipacaoEmGols()*0.2));
 }
+
+void Lateral::ShowInfo(){
+    cout << "nome do jogador: " << m_nome << endl
+         << "numero: " << m_numero << endl
+         << "data de mascimento: " << m_bDay << endl
+         << "Posicao: Lateral" << endl
+         << "-----------------------------"
+         << endl; 
+}

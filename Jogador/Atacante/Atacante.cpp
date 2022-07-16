@@ -28,3 +28,12 @@ float Atacante::CalcNota(){
             +(Atacante::ConversaoChutes()*0.2)
             +(m_gols*0.5));
 }
+
+void Atacante::ShowInfo(){
+    cout << "nome do jogador: " << m_nome << endl
+         << "numero: " << m_numero << endl
+         << "data de mascimento: " << m_bDay << endl
+         << "Posição: Atacante" << endl
+         << "-----------------------------"
+         << endl; 
+}

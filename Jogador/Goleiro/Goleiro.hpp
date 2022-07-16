@@ -20,6 +20,7 @@ public:
     //Gets
     size_t GetDefesa();
     float CalcNota();
+    void ShowInfo();
 };
 
 #endif

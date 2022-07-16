@@ -13,6 +13,7 @@ public:
     ~MeioCampista(){};
 
     float CalcNota();
+    void ShowInfo();
 };
 
 #endif
