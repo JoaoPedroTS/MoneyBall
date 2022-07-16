@@ -19,7 +19,7 @@ int main(){
         cout << "3. Adicionar dados referentes a uma partida" << endl;
         cout << "4. Adicionar dados referentes a um campeonato" << endl;
         cout << "5. Associar um jogador a um time" << endl;
-        cout << "6. Associar um time a um campeonato" << endl;
+        cout << "6. Associar uma partida a um campeonato" << endl;
         cout << "7. Consultar dados de um campeonato" << endl;
         cout << "0. Sair" << endl;
 
@@ -77,7 +77,6 @@ int main(){
             
             cout << "Atletas cadastrados: " << endl;
             for (size_t i = 0; i < listaJogadores.size(); i++){
-                cout << "Atletas cadastrados: " << endl;
                 listaJogadores.at(i)->ShowInfo();
             }
         }
@@ -90,10 +89,18 @@ int main(){
             Time time(nome);
             listaTimes.push_back(time);
 
+            cout << "Time cadastrado, resumo:" << endl;
+            for (size_t i = 0; i < listaTimes.size(); i++){
+                cout << "id Time: " << i+1 << endl
+                     << "Nome Time: " << listaTimes.at(i).GetNome() << endl
+                     << "-------------------------------------"
+                     << endl;
+            }
+            
+
             continue;
         }
 
-        //Exibindo endereços
         if (opt == 3){
             if (listaTimes.size() < 2){
                 cout << "Quantidade de times cadastrados insuficientes" << endl;
@@ -138,11 +145,12 @@ int main(){
 
             Campeonato campeonato(nome);
             listaCampeonatos.push_back(campeonato);
+            campeonato.ShowInfo();
 
             continue;
         }
 
-        //A listagem de jogadores esta exibindo ponteiros
+        //Metodo AddJogador n está funcionando
         if (opt == 5){
             if (listaJogadores.empty()){
                 cout << "nenhum jogador cadastrado" << endl;
@@ -160,11 +168,13 @@ int main(){
                     cout << "Informe o id do jogador que será tranferido" << endl;
                     size_t idJogador;
                     cin >> idJogador;
-                    Jogador *jogador = listaJogadores.at(idJogador - 1);
+                    Jogador* jogador = listaJogadores.at(idJogador - 1);
 
                     for (size_t i = 0; i < listaTimes.size(); i++){
-                        cout << "id Time: " << i+1 << endl;
-                        listaTimes.at(i).GetNome();                    
+                        cout << "id Time: " << i+1 << endl
+                             << "Nome Time: " << listaTimes.at(i).GetNome() << endl
+                             << "-------------------------------------"
+                             << endl;
                     }
 
                     cout << "informe o id do time que o jogador esta sendo tranferido" << endl;
@@ -173,34 +183,35 @@ int main(){
                     Time time = listaTimes.at(idTime-1);
 
                     time.AddJogador(jogador);
-                    cout << "elenco do " << time.GetNome() << endl;
                     time.ListarElenco();
                 }
             }
             continue;
         }
 
-        //A listagem de times esta exibindo ponteiros
+        //A listagem de patidas com problemas de segmentation fault
         if (opt == 6){
-            if (listaTimes.empty()){
-                cout << "nenhum time cadastrado" << endl;
+            if (listaPartidas.empty()){
+                cout << "nenhuma partida cadastrada" << endl;
                 continue;                
             } else {
                 if (listaCampeonatos.empty()){
                     cout << "nenhum campeonato cadastrado" << endl;
                     continue;
                 } else {
-                    for (size_t i = 0; i < listaTimes.size(); i++){
-                        cout << "id time: " << i+1 << " nome: " << listaTimes.at(i).GetNome() << endl;
+                    for (size_t i = 0; i < listaPartidas.size(); i++){
+                        cout << "id partida: " << i+1 << endl;
+                        listaPartidas.at(i).ShowInfo();
                     }
 
-                    cout << "informe o id do time" << endl;
-                    size_t idTime;
-                    cin >> idTime;
-                    Time time = listaTimes.at(idTime-1);
+                    cout << "informe o id da partida" << endl;
+                    size_t idPartida;
+                    cin >> idPartida;
+                    Partida partida = listaPartidas.at(idPartida-1);
 
                     for (size_t i = 0; i < listaCampeonatos.size(); i++){
-                        cout << "id campeonato: " << i+1 << " nome: " << listaCampeonatos.at(i).GetNome() << endl;
+                        cout << "id campeonato: " << i+1 << endl
+                             << " nome: " << listaCampeonatos.at(i).GetNome() << endl;
                     }                    
                     
                     cout << "informe o id do campeonato" << endl;
@@ -208,9 +219,9 @@ int main(){
                     cin >> idCampeonato;
                     Campeonato campeonato = listaCampeonatos.at(idCampeonato-1);
 
-                    //campeonato.AddTime(&time);
-                    cout << "Times inscritos no(a) " << campeonato.GetNome() << endl;
-                    campeonato.ListarIncritos();
+                    campeonato.AddPartida(&partida);
+                    cout << "partidas cadastradas no(a) " << campeonato.GetNome() << endl;
+                    campeonato.ListarPartidas();
                 }
                 
             }

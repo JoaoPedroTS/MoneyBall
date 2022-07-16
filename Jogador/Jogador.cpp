@@ -19,6 +19,10 @@ Jogador::Jogador(string nome, size_t numero, string bday){
 //Sets
 
 //Gets
+string Jogador::GetNome(){
+    return m_nome;
+}
+
 void Jogador::ShowInfo(){
     cout << "nome do jogador: " << m_nome << endl
          << "numero: " << m_numero << endl

@@ -20,9 +20,21 @@ string Campeonato::GetNome(){
     return m_nome;
 }
 
-void Campeonato::ListarIncritos(){
+void Campeonato::ShowInfo(){
+    cout << "Nome Campeonato: " << m_nome << endl;
+    if (m_partidas.empty()){
+        cout << "Nenhuma partida cadastrada" << endl;
+    } else {
+        cout << "Partidas: " << endl;
+        for (size_t i = 0; i < m_partidas.size(); i++){
+            m_partidas.at(i)->ShowInfo();
+        }
+    }    
+}
+
+void Campeonato::ListarPartidas(){
     for (size_t i = 0; i < m_partidas.size(); i++){
-        cout << m_partidas.at(i) << endl;
+        m_partidas.at(i)->ShowInfo();
     }
     
 }

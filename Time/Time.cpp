@@ -29,8 +29,8 @@ string Time::GetNome(){
 }
 
 void Time::ListarElenco(){
+    cout << "Elenco do " << m_nome << ":" << endl;
     for (size_t i = 0; i < m_elenco.size(); i++){
-        cout << m_elenco.at(i) << endl;
+        cout << m_elenco.at(i)->GetNome() << endl;
     }
-    
 }

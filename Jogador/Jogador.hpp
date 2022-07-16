@@ -25,6 +25,7 @@ public:
     //Sets
 
     //Gets
+    string GetNome();
     virtual void ShowInfo();
     float AproveitamentoPasse();
     float AproveitamentoDessarmes();

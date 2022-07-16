@@ -25,7 +25,8 @@ public:
 
     //Gets
     string GetNome();
-    void ListarIncritos();
+    void ShowInfo();
+    void ListarPartidas();
 };
 
 #endif

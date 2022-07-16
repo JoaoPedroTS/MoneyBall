@@ -21,5 +21,8 @@ void Partida::SetVisitante(Time *time){
 
 //Gets
 void Partida::ShowInfo(){
-    cout << m_confronto.first << " x " << m_confronto.second << "" << m_data << " às " << m_horario <<endl;
+    cout << m_confronto.first->GetNome() << " x " << m_confronto.second->GetNome() << endl
+         << "" << m_data << " às " << m_horario << endl
+         << "------------------------------"
+         << endl;
 }
