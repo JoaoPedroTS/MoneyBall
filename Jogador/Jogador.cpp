@@ -23,6 +23,10 @@ string Jogador::GetNome(){
     return m_nome;
 }
 
+size_t Jogador::GetNumero(){
+    return m_numero;
+}
+
 void Jogador::ShowInfo(){
     cout << "nome do jogador: " << m_nome << endl
          << "numero: " << m_numero << endl

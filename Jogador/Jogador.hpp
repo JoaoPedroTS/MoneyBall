@@ -20,12 +20,13 @@ public:
     Jogador(string nome, size_t numero, string bday);
     
     //Destrutor
-    ~Jogador(){};
+    virtual ~Jogador(){};
 
     //Sets
 
     //Gets
     string GetNome();
+    size_t GetNumero();
     virtual void ShowInfo();
     float AproveitamentoPasse();
     float AproveitamentoDessarmes();

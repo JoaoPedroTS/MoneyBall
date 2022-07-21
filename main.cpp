@@ -52,27 +52,27 @@ int main(){
 
             if(option == 1){
                 Goleiro *jogador = new Goleiro(nome, numero, bday);
-                listaJogadores.push_back(jogador);
+                listaJogadores.push_back((jogador));
             }
 
             if(option == 2){
                 Zagueiro *jogador = new Zagueiro(nome, numero, bday);
-                listaJogadores.push_back(jogador);
+                listaJogadores.push_back((jogador));
             }
 
             if (option == 3){
                 Lateral *jogador = new Lateral(nome, numero, bday);
-                listaJogadores.push_back(jogador);
+                listaJogadores.push_back((jogador));
             }
 
             if (option == 4){
                 MeioCampista *jogador = new MeioCampista(nome, numero, bday);
-                listaJogadores.push_back(jogador);
+                listaJogadores.push_back((jogador));
             }
 
             if(option == 5){
                 Atacante *jogador = new Atacante(nome, numero, bday);
-                listaJogadores.push_back(jogador);
+                listaJogadores.push_back((jogador));
             }
             
             cout << "Atletas cadastrados: " << endl;
@@ -114,7 +114,6 @@ int main(){
                 cin >> horario;
 
                 Partida partida(data, horario);
-                listaPartidas.push_back(partida);
 
                 for (size_t i = 0; i < listaTimes.size(); i++){
                     cout << "idTime: " << i+1 << endl
@@ -124,15 +123,22 @@ int main(){
                 cout << "Informe o mandante da partida" << endl;
                 size_t idMandante;
                 cin >> idMandante;
-                partida.SetMandante(&listaTimes.at(idMandante-1));
+                partida.SetMandante(&listaTimes.at(idMandante-1));                
 
                 cout << "Informe o visitante da partida" << endl;
                 size_t idVisitante;
-                cin >> idVisitante;
-                partida.SetVisitante(&listaTimes.at(idVisitante-1));
+                if (idMandante == idVisitante){
+                    cout << "Erro, times iguais" << endl;
+                    continue;
+                } else {
+                    cin >> idVisitante;
+                    partida.SetVisitante(&listaTimes.at(idVisitante-1));
+                }                
 
                 cout << "Resumo da partida:" << endl;
                 partida.ShowInfo();
+                
+                listaPartidas.push_back(partida);
             }           
 
         }
@@ -152,14 +158,15 @@ int main(){
 
         //Metodo AddJogador n está funcionando
         if (opt == 5){
-            if (listaJogadores.empty()){
+            if (listaJogadores.size() == 0){
                 cout << "nenhum jogador cadastrado" << endl;
                 continue;
             } else {
-                if (listaTimes.empty()){
-                cout << "nenhum time cadastrado" << endl;
-                continue;
-                } else {
+                if (listaTimes.size() == 0){
+                    cout << "nenhum time cadastrado" << endl;
+                    continue;
+                } 
+                else {
                     for (size_t i = 0; i < listaJogadores.size(); i++){
                         cout << "id do jogador: " << i+1 << endl;
                         listaJogadores.at(i)->ShowInfo();
@@ -168,7 +175,7 @@ int main(){
                     cout << "Informe o id do jogador que será tranferido" << endl;
                     size_t idJogador;
                     cin >> idJogador;
-                    Jogador* jogador = listaJogadores.at(idJogador - 1);
+                    Jogador* jogador = listaJogadores.at(idJogador - 1); //
 
                     for (size_t i = 0; i < listaTimes.size(); i++){
                         cout << "id Time: " << i+1 << endl
@@ -180,10 +187,9 @@ int main(){
                     cout << "informe o id do time que o jogador esta sendo tranferido" << endl;
                     size_t idTime;
                     cin >> idTime;
-                    Time time = listaTimes.at(idTime-1);
-
-                    time.AddJogador(jogador);
-                    time.ListarElenco();
+                    
+                    listaTimes.at(idTime-1).AddJogador(jogador);
+                    listaTimes.at(idTime-1).ListarElenco();
                 }
             }
             continue;
@@ -207,7 +213,6 @@ int main(){
                     cout << "informe o id da partida" << endl;
                     size_t idPartida;
                     cin >> idPartida;
-                    Partida partida = listaPartidas.at(idPartida-1);
 
                     for (size_t i = 0; i < listaCampeonatos.size(); i++){
                         cout << "id campeonato: " << i+1 << endl
@@ -217,11 +222,10 @@ int main(){
                     cout << "informe o id do campeonato" << endl;
                     size_t idCampeonato;
                     cin >> idCampeonato;
-                    Campeonato campeonato = listaCampeonatos.at(idCampeonato-1);
+                    listaCampeonatos.at(idCampeonato-1).AddPartida(&listaPartidas.at(idPartida-1));  
 
-                    campeonato.AddPartida(&partida);
-                    cout << "partidas cadastradas no(a) " << campeonato.GetNome() << endl;
-                    campeonato.ListarPartidas();
+                    cout << "partidas cadastradas no(a) " << listaCampeonatos.at(idCampeonato-1).GetNome() << endl;
+                    listaCampeonatos.at(idCampeonato-1).ListarPartidas();
                 }
                 
             }

@@ -23,7 +23,7 @@ string Campeonato::GetNome(){
 void Campeonato::ShowInfo(){
     cout << "Nome Campeonato: " << m_nome << endl;
     if (m_partidas.empty()){
-        cout << "Nenhuma partida cadastrada" << endl;
+        cout << "Nenhuma partida associada a esse campeonato" << endl;
     } else {
         cout << "Partidas: " << endl;
         for (size_t i = 0; i < m_partidas.size(); i++){
