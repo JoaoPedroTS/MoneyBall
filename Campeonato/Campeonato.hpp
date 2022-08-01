@@ -7,8 +7,7 @@
 
 using namespace std;
 
-class Campeonato
-{
+class Campeonato{
 protected:
     string m_nome;
     vector <Partida*> m_partidas;

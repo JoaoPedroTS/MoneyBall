@@ -17,6 +17,27 @@ Jogador::Jogador(string nome, size_t numero, string bday){
 }
 
 //Sets
+void Jogador::SetGols(size_t gols){
+    m_gols += gols;
+}
+
+void Jogador::SetAssists(size_t assists){
+    m_assists += assists;
+}
+void Jogador::SetChutes(size_t chutes){
+    m_chutes += chutes;
+}
+void Jogador::SetPCertos(size_t pCertos){
+    m_pCertos += pCertos;
+}
+
+void Jogador::SetPErrados(size_t pErrados){
+    m_pErrados += pErrados;
+}
+
+void Jogador::SetPDecisivos(size_t pDecisivos){
+    m_pDecisivos += pDecisivos;
+}
 
 //Gets
 string Jogador::GetNome(){
@@ -25,6 +46,10 @@ string Jogador::GetNome(){
 
 size_t Jogador::GetNumero(){
     return m_numero;
+}
+
+float Jogador::CalcNota(){
+    return 10,00;
 }
 
 void Jogador::ShowInfo(){

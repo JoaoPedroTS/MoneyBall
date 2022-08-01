@@ -23,11 +23,18 @@ public:
     virtual ~Jogador(){};
 
     //Sets
+    void SetGols(size_t gols);
+    void SetAssists(size_t assists);
+    void SetChutes(size_t chutes);
+    void SetPCertos(size_t pCertos);
+    void SetPErrados(size_t pErrados);
+    void SetPDecisivos(size_t pDecisivos);
 
     //Gets
     string GetNome();
     size_t GetNumero();
     virtual void ShowInfo();
+    virtual float CalcNota();
     float AproveitamentoPasse();
     float AproveitamentoDessarmes();
     float ConversaoChutes();

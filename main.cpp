@@ -20,7 +20,7 @@ int main(){
         cout << "4. Adicionar dados referentes a um campeonato" << endl;
         cout << "5. Associar um jogador a um time" << endl;
         cout << "6. Associar uma partida a um campeonato" << endl;
-        cout << "7. Consultar dados de um campeonato" << endl;
+        cout << "7. Resumo da partida" << endl;
         cout << "0. Sair" << endl;
 
         size_t opt;
@@ -141,8 +141,7 @@ int main(){
                 listaPartidas.push_back(partida);
             }           
 
-        }
-        
+        }        
 
         if (opt == 4){
            cout << "Informe o nome do campeonato" << endl;
@@ -156,7 +155,6 @@ int main(){
             continue;
         }
 
-        //Metodo AddJogador n está funcionando
         if (opt == 5){
             if (listaJogadores.size() == 0){
                 cout << "nenhum jogador cadastrado" << endl;
@@ -194,8 +192,7 @@ int main(){
             }
             continue;
         }
-
-        //A listagem de patidas com problemas de segmentation fault
+        
         if (opt == 6){
             if (listaPartidas.empty()){
                 cout << "nenhuma partida cadastrada" << endl;
@@ -234,6 +231,51 @@ int main(){
         }
 
         if (opt == 7){
+            if(listaJogadores.empty()){
+                cout << "nenhum jogador cadastrado" << endl;
+                continue;
+            } else {
+                for (size_t i = 0; i < listaJogadores.size(); i++){
+                    cout << "id: " << i+1 << " - nome: " << listaJogadores.at(i)->GetNome() << endl;
+                }
+
+                cout << "informe o id do jogador que deseja adicionar numero" << endl;
+                size_t idJogador;
+                cin>> idJogador;
+
+                cout << "Informe a quantidade de gols" << endl;
+                size_t gols;
+                cin >> gols;
+                listaJogadores.at(idJogador-1)->SetGols(gols);
+
+                cout << "informe a quantidade de assistencias" << endl;
+                size_t assists;
+                cin >> assists;
+                listaJogadores.at(idJogador-1)->SetAssists(assists);
+
+                cout << "Informe a quantidade de finalizações" << endl;
+                size_t chutes;
+                cin >> chutes;
+                listaJogadores.at(idJogador-1)->SetChutes(chutes);
+
+                cout << "Informe a quantidade de passes certos" << endl;
+                size_t pCertos;
+                cin >> pCertos;
+                listaJogadores.at(idJogador-1)->SetPCertos(pCertos);
+
+                cout << "Informe a quantidade de passes errados" << endl;
+                size_t pErrados;
+                cin >> pErrados;
+                listaJogadores.at(idJogador-1)->SetPErrados(pErrados);
+
+                cout << "Informe a quantidade de passes decisivos" << endl;
+                size_t pDecisivos;
+                cin >> pDecisivos;
+                listaJogadores.at(idJogador-1)->SetPDecisivos(pDecisivos);
+
+                cout << "Nota do jogador: " << listaJogadores.at(idJogador-1)->CalcNota() << endl;
+            }
+            
             continue;
         }
 
